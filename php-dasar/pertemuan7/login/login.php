@@ -1,3 +1,20 @@
+<?php
+//cek tombol submit sudah ditekan atau belum
+if( isset($_POST["submit"]) ){
+    //cek username dan password
+    if( $_POST["username"] == "admin" && $_POST["password"] == "pemilik" ) {
+
+        //jika benar redirect ke halaman admin
+        header("Location: admin.php");
+        exit;
+    } else {
+
+            //jika salah tampilkan pesan kesalahan 
+            $error = true;
+        }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +24,9 @@
 </head>
 <body>
     <h1>Login admin</h1>
+        <?php if( isset($error) ) : ?>
+            <p style="color: red; font-style: italic;">username atau password salah</p>
+        <?php endif; ?>
     <ul>
     <form action="" method="post">
         <li>
