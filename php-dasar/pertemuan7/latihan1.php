@@ -30,11 +30,7 @@ $posters = [
     <?php foreach( $posters as $poster): ?>
     <ul>
         <li>
-            <a href="latihan2.php?title=<?= $poster["title"]; ?>&price=<?= $poster["price"]; ?>&images=<?= $poster["images"]; ?>&artist=<?= $poster["artist"]; ?>&email=<?= $poster["email"]  ?>
-            
-            
-            
-            ">
+            <a href="latihan2.php?title=<?= $poster["title"]; ?>&price=<?= $poster["price"]; ?>&images=<?= $poster["images"]; ?>&artist=<?= $poster["artist"]; ?>&email=<?= $poster["email"]  ?>">
             <?= $poster["title"];?></a>
         </li>
     </ul>
