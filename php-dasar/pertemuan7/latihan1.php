@@ -1,5 +1,5 @@
 <?php
-$prints = [
+$posters = [
     ["title"=>"Katana","price"=>100000,"artist"=>"@murdoko_","email"=>"mail@gmail.com", "images"=>"IMG_20190808_204136_712.jpg"],
     ["title"=>"Blah","price"=>500000,"artist"=>"@murdoko_","email"=>"mail@gmail.com", "images"=>"IMG_20190809_174715_994.jpg"],
     ["title"=>"Sommarfagel","price"=>200000,"artist"=>"@murdoko_","email"=>"mail@gmail.com", "images"=>"IMG_20191129_200034_012.jpg"],
@@ -27,18 +27,18 @@ $prints = [
 </head>
 <body>
     <h1>Art List</h1>
-    <?php foreach( $prints as $print): ?>
+    <?php foreach( $posters as $poster): ?>
     <ul>
-        <!-- <li>
-            <img src="img/<?= $print["images"];?>">
-        </li> -->
         <li>
-            <a href="latihan2.php"><?= $print["title"];?></a>
+            <a href="latihan2.php?title=<?= $poster["title"]; ?>&price=<?= $poster["price"]; ?>&images=<?= $poster["images"]; ?>&artist=<?= $poster["artist"]; ?>&email=<?= $poster["email"]  ?>
+            
+            
+            
+            ">
+            <?= $poster["title"];?></a>
         </li>
-        <!-- <li>IDR   :<?= $print["price"];?></li>
-        <li>Artist:<?= $print["artist"];?></li>
-        <li>Email  :<?= $print["email"];?></li> -->
     </ul>
     <?php endforeach; ?>
+    
 </body>
 </html>
