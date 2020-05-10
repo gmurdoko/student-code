@@ -12,6 +12,9 @@ $posters = query("SELECT * FROM posters");
 </head>
 <body>
     <h1>Poster</h1>
+    <a href="tambah.php">Tambah data poster</a>
+    <br>
+    <br>
     <table border= "1" cellpadding= "10" cellspacing= "0">
     <tr>
         <th>No.</th>
