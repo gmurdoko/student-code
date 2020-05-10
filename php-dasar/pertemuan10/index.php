@@ -32,7 +32,8 @@ $posters = query("SELECT * FROM posters");
         <td><?= $i ?></td>
         <td>
             <a href="">ubah</a> | 
-            <a href="">hapus</a>
+            <a href="hapus.php?id=<?= $poster["id"];?>" onclick="
+                return confirm('yakin?');">hapus</a>
         </td>
         <td> <img src="img/<?= $poster["images"]; ?>" width="50"></td>
         <td><?= $poster["title"];?></td>
