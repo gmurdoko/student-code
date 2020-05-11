@@ -64,4 +64,17 @@ function ubah($data){
 
 }
 
+
+function cari($keyword){
+    
+    $query = "SELECT * FROM posters WHERE
+            title LIKE '%$keyword%' OR
+            artist LIKE '%$keyword%'
+    ";
+
+    return query($query);
+
+
+}
+
 ?>

@@ -1,6 +1,11 @@
 <?php
 require 'functions.php';
+
 $posters = query("SELECT * FROM posters");
+
+if ( isset($_POST["cari"]) ) {
+    $posters = cari($_POST["keyword"]);
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +20,14 @@ $posters = query("SELECT * FROM posters");
     <a href="tambah.php">Tambah data poster</a>
     <br>
     <br>
+
+    <form action="" method="post">
+        <input type="text" name="keyword" size="40" id="" autofocus placeholder="masukkan keyword pencarian.." autocomplete="off">
+        <button type="submit" name="cari">Cari!</button>
+    </form>
+    <br>
+    <br>
+
     <table border= "1" cellpadding= "10" cellspacing= "0">
     <tr>
         <th>No.</th>
