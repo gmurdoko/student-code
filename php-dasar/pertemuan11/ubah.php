@@ -38,6 +38,7 @@ if ( isset($_POST["submit"]) ) {
 <body>
 <h1>Ubah data poster</h1>
     <form action="" method="post">
+        <input type="hidden" name="id" value="<?= $poster["id"]; ?>">
         <ul>
             <li>
                 <label for="title">Title: </label>

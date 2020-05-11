@@ -42,4 +42,26 @@ function hapus($id){
      
 }
 
+function ubah($data){
+    global $conn;
+
+    $id = $data["id"];
+    $title = htmlspecialchars($data["title"]);
+    $artist = htmlspecialchars($data["artist"]);
+    $price = htmlspecialchars($data["price"]);
+    $email = htmlspecialchars($data["email"]);
+    $images = htmlspecialchars($data["images"]);
+
+    $query = "UPDATE posters SET 
+            title = '$title', artist = '$artist',
+            price = '$price', email = '$email',
+            images = '$images' WHERE id = $id
+    ";
+
+    mysqli_query($conn, $query);
+
+    return mysqli_affected_rows($conn);
+
+}
+
 ?>
