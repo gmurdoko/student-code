@@ -3,6 +3,10 @@ require 'functions.php';
 
 if ( isset($_POST["submit"]) ) {
 
+    // var_dump($_POST);
+    // var_dump($_FILES);
+    // die;
+
     if ( tambah($_POST) > 0) {
         echo "
             <script>
@@ -32,7 +36,7 @@ if ( isset($_POST["submit"]) ) {
 </head>
 <body>
 <h1>Tambah data poster</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="title">Title: </label>
@@ -52,7 +56,7 @@ if ( isset($_POST["submit"]) ) {
             </li>
             <li>
                 <label for="images">Images: </label>
-                <input type="text" name="images" id="images" required>
+                <input type="file" name="images" id="images">
             </li>
             <li>
                 <button type="submit" name="submit">Tambah data</button>

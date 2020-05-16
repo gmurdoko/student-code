@@ -18,7 +18,13 @@ function tambah($data){
     $artist = htmlspecialchars($data["artist"]);
     $price = htmlspecialchars($data["price"]);
     $email = htmlspecialchars($data["email"]);
-    $images = htmlspecialchars($data["images"]);
+
+    //upload gambar
+    $images = upload();
+
+    if (!$images) {
+        return false;
+    }
     
     $query = "INSERT INTO posters
             VALUES 
@@ -27,6 +33,55 @@ function tambah($data){
     mysqli_query($conn, $query);
 
     return mysqli_affected_rows($conn);
+
+}
+
+function upload(){
+
+    $namafile = $_FILES['images']['name'];
+    $ukuranfile =  $_FILES['images']['size'];
+    $error = $_FILES['images']['error'];
+    $tmpname = $_FILES['images']['tmp_name']; 
+
+    // cek upload
+    if ($error === 4) {
+        echo "<script>
+            alert('pilih gambar terlebih dahulu');
+            </script>";
+        return false;
+    }
+
+    // cek type data
+    $extensiimagesValid = ['jpg','jpeg','png'];
+    $extensiimages = explode('.', $namafile);
+    $extensiimages = strtolower(end($extensiimages));
+    
+    if ( !in_array($extensiimages, $extensiimagesValid) ) {
+        echo "<script>
+            alert('file gambar tidak valid');
+            </script>";
+        return false;
+    }
+
+    // cel ukuran
+
+    if ($ukuranfile > 2000000) {
+        echo "<script>
+            alert('ukuran gambar terlalu besar');
+            </script>";
+        return false;
+    }
+
+    // lolos pengecekan 
+    // generate nama
+    $namafilebaru = uniqid();
+    $namafilebaru .= '.';
+    $namafilebaru .= $extensiimages;
+
+    move_uploaded_file($tmpname, 'img/' . $namafilebaru);
+
+    return $namafilebaru;
+
 
 }
 
