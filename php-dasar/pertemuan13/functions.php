@@ -105,7 +105,16 @@ function ubah($data){
     $artist = htmlspecialchars($data["artist"]);
     $price = htmlspecialchars($data["price"]);
     $email = htmlspecialchars($data["email"]);
-    $images = htmlspecialchars($data["images"]);
+    $imagesLama = htmlspecialchars($data["imagesLama"]);
+
+    // cek user pilih gambar baru
+    if ($_FILES['images']['error'] === 4) {
+        $images = $imagesLama;
+    } else {
+        $images = upload();
+    }
+
+    
 
     $query = "UPDATE posters SET 
             title = '$title', artist = '$artist',

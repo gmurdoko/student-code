@@ -37,8 +37,9 @@ if ( isset($_POST["submit"]) ) {
 </head>
 <body>
 <h1>Ubah data poster</h1>
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $poster["id"]; ?>">
+        <input type="hidden" name="imagesLama" value="<?= $poster["images"]; ?>">
         <ul>
             <li>
                 <label for="title">Title: </label>
@@ -57,8 +58,9 @@ if ( isset($_POST["submit"]) ) {
                 <input type="text" name="email" id="email" required value="<?= $poster["email"]; ?>">
             </li>
             <li>
-                <label for="images">Images: </label>
-                <input type="text" name="images" id="images" required value="<?= $poster["images"]; ?>">
+                <label for="images">Images: </label> <br>
+                <img src="img/<?= $poster['images']; ?>" width= "50px"> <br>
+                <input type="file" name="images" id="images" >
             </li>
             <li>
                 <button type="submit" name="submit">Ubah data</button>
