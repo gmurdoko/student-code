@@ -1,4 +1,9 @@
 <?php
+session_start();
+if ( !isset($_SESSION["login"]) ) {
+    header("location: login.php");
+    exit;
+}
 require 'functions.php';
 
 $posters = query("SELECT * FROM posters");
@@ -16,6 +21,7 @@ if ( isset($_POST["cari"]) ) {
     <title>Posters</title>
 </head>
 <body>
+<a href="logout.php">logout</a>
     <h1>Poster</h1>
     <a href="tambah.php">Tambah data poster</a>
     <br>
